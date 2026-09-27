@@ -44,7 +44,8 @@ Rellena `social` en `src/config.ts`. Los enlaces vacíos no se muestran.
 ## Kit de marca
 
 - Página con el kit: `/marca`
-- Icono de la autocaravana (fuente): `src/assets/brand/camper.svg`
+- Logotipo original (fuente, vectorizado del paquete de Smashing Logo): `src/assets/brand/logo.svg`
+- Logotipo tipográfico: `src/assets/brand/texto.svg` · Icono de la autocaravana: `src/assets/brand/camper.svg`
 - Colores: Noche `#0B120C`, Salvia `#CFE3AE`, Arena `#F4D59A`, Ocre `#E9A15F`, Texto `#EDE8DA`
 - Tipografías: Michroma (rótulos), Outfit (titulares), Source Serif 4 (texto)
 - Regenerar favicons, iconos, logos PNG e imagen para redes: `npm run brand`
