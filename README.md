@@ -19,6 +19,7 @@ destino: marruecos      # marruecos | balcanes | rancherita | filosofia
 cover: dunas            # ilustración si no hay foto: dunas | atlas | balcanes | pista | noche | camper
 image: /fotos/merzouga.jpg   # opcional: foto de portada (guárdala en public/fotos/)
 imageAlt: 'Rancherita junto a las dunas al atardecer'
+imagePosition: 'center 70%'   # opcional: encuadre de la foto si se corta
 tags: [sahara, arena]
 draft: false            # true = no se publica
 ---
