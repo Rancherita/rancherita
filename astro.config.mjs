@@ -2,10 +2,12 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// Por defecto se publica en GitHub Pages: https://rancherita.github.io/rancherita/
-// Si más adelante usáis un dominio propio, definid SITE_URL (p. ej. https://rancherita.com) y BASE_PATH=/
-const site = process.env.SITE_URL || 'https://rancherita.github.io';
-const base = process.env.BASE_PATH || '/rancherita';
+// El sitio se publica en el dominio propio: https://rancheritaontour.com
+// Al servirse en la raíz del dominio, `base` es '/'. (Con la URL antigua de
+// GitHub Pages hacía falta base '/rancherita'; si se cambia el dominio, basta
+// con definir las variables SITE_URL y BASE_PATH en Actions.)
+const site = process.env.SITE_URL || 'https://rancheritaontour.com';
+const base = process.env.BASE_PATH || '/';
 
 export default defineConfig({
   site,

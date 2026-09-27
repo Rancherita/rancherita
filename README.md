@@ -3,7 +3,7 @@
 Blog de viajes de **Rancherita**, nuestra Toyota Hilux 4×4 con cabina Tischer.
 Hecho con [Astro](https://astro.build) y publicado automáticamente en GitHub Pages.
 
-🌍 **Web:** https://rancherita.github.io/rancherita/
+🌍 **Web:** https://rancheritaontour.com
 
 ## Escribir una entrada nueva
 
@@ -25,7 +25,7 @@ draft: false            # true = no se publica
 
 Aquí va el texto, en Markdown. **Negritas**, listas, > citas, tablas…
 
-![Descripción de la foto](/rancherita/fotos/otra-foto.jpg)
+![Descripción de la foto](/fotos/otra-foto.jpg)
 ```
 
 3. Guarda, haz commit y push a `main`. En 1–2 minutos la web se actualiza sola.
@@ -53,11 +53,17 @@ Rellena `social` en `src/config.ts`. Los enlaces vacíos no se muestran.
 
 ```sh
 npm install
-npm run dev      # http://localhost:4321/rancherita/
+npm run dev      # http://localhost:4321/
 npm run build    # genera dist/
 ```
 
-## Dominio propio
+## Dominio
 
-En *Settings → Secrets and variables → Actions → Variables* cread `SITE_URL` (p. ej. `https://rancherita.com`)
-y `BASE_PATH` con valor `/`, y configurad el dominio en *Settings → Pages*.
+El sitio se publica en **https://rancheritaontour.com**. La configuración vive en dos sitios:
+
+- `astro.config.mjs`: `site` (el dominio) y `base` (`/`, porque servimos en la raíz).
+- `public/CNAME`: el dominio, para que GitHub Pages lo conserve en cada despliegue.
+
+Si algún día cambiáis de dominio, tocad esos dos archivos (o definid las variables
+`SITE_URL` y `BASE_PATH` en *Settings → Secrets and variables → Actions → Variables*,
+que tienen prioridad) y actualizad *Settings → Pages*.
