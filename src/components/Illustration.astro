@@ -1,0 +1,113 @@
+---
+// Ilustraciones de línea con la paleta de la marca. Se usan como portada
+// mientras no haya fotografía (y como decoración en el sitio).
+import camperRaw from '../assets/brand/camper.svg?raw';
+
+interface Props {
+  scene: 'dunas' | 'atlas' | 'balcanes' | 'pista' | 'noche' | 'camper' | 'horizonte';
+  class?: string;
+  label?: string;
+}
+const { scene, class: cls = '', label } = Astro.props;
+const id = `il-${scene}-${Math.random().toString(36).slice(2, 8)}`;
+const camperBody = camperRaw
+  .replace(/^[\s\S]*?<\/defs>/, '')
+  .replace(/<\/svg>\s*$/, '')
+  .replaceAll('url(#g)', `url(#${id}-c)`);
+const camper = (x: number, y: number, s: number, flip = false) =>
+  `<g transform="translate(${x} ${y}) scale(${flip ? -s : s} ${s})">${camperBody}</g>`;
+
+// Estrellas pseudoaleatorias deterministas
+const stars = (n: number, seed: number, maxY: number) => {
+  let v = seed;
+  const r = () => ((v = (v * 9301 + 49297) % 233280) / 233280);
+  return Array.from({ length: n }, () => ({ x: r() * 800, y: r() * maxY, s: 0.6 + r() * 1.4, o: 0.3 + r() * 0.6 }));
+};
+
+const scenes: Record<string, string> = {
+  dunas: `
+    <circle cx="560" cy="250" r="92" class="sun"/>
+    <path d="M0 300 C120 250 210 250 300 285 S480 330 560 290 S720 240 800 270"/>
+    <path d="M0 350 C90 320 190 300 290 330 S470 390 600 350 S740 320 800 335" class="soft"/>
+    <path d="M0 400 C140 370 260 385 380 405 S620 420 800 390" class="soft"/>
+    <path d="M300 285 C330 300 350 318 360 345" class="thin"/>
+    <path d="M560 290 C580 305 600 328 606 352" class="thin"/>
+    ${camper(170, 232, 0.55)}
+    <path d="M60 430 L740 430" class="thin"/>`,
+  atlas: `
+    <path d="M0 320 L90 230 L140 270 L230 150 L300 240 L360 190 L450 280 L540 160 L610 230 L680 180 L800 300"/>
+    <path d="M230 150 L250 200 L270 190 M540 160 L560 205 L585 195" class="thin"/>
+    <path d="M0 360 L120 300 L220 340 L330 290 L470 350 L600 300 L800 360" class="soft"/>
+    <path d="M400 440 C380 410 460 400 430 380 S360 360 420 340 S520 330 480 318" class="dash"/>
+    <path d="M610 360 L610 330 L630 330 L630 322 L650 322 L650 330 L670 330 L670 360 Z M620 345 L626 345 M654 345 L660 345" class="thin"/>
+    <circle cx="160" cy="110" r="26" class="sun"/>
+    ${camper(456, 300, 0.32)}`,
+  balcanes: `
+    <path d="M0 250 L110 140 L170 190 L260 90 L340 190 L420 130 L520 230 L600 150 L700 210 L800 170"/>
+    <path d="M260 90 L275 130 L300 118 M600 150 L612 180 L632 172" class="thin"/>
+    <path d="M0 290 L800 290" class="thin"/>
+    <path d="M40 310 L200 310 M260 322 L520 322 M120 336 L360 336 M470 350 L700 350 M560 310 L760 310" class="soft"/>
+    <path d="M0 290 L110 360 L170 330 L260 400" class="ghost"/>
+    ${[80, 110, 690, 720, 750].map((x, i) => `<path d="M${x} 290 L${x} 270 M${x - 12} 272 L${x} 240 L${x + 12} 272 Z" class="thin"/>`).join('')}
+    <circle cx="640" cy="80" r="22" class="sun"/>
+    ${camper(560, 380, 0.5)}
+    <path d="M500 432 L780 432" class="thin"/>`,
+  pista: `
+    <path d="M0 250 C160 200 300 230 400 215 S640 190 800 230" class="soft"/>
+    <path d="M0 270 L800 270"/>
+    <path d="M380 270 C360 320 250 380 90 450" />
+    <path d="M420 270 C450 320 580 380 760 450" />
+    <path d="M400 290 L398 300 M395 320 L391 338 M384 362 L376 392 M366 420 L358 450" class="thin"/>
+    <circle cx="240" cy="170" r="40" class="sun"/>
+    ${camper(560, 216, 0.44)}
+    <path d="M60 300 L70 290 L80 300 M680 300 L692 286 L704 300" class="thin"/>`,
+  noche: `
+    <circle cx="640" cy="95" r="30" class="moon"/>
+    <path d="M0 330 L130 250 L220 300 L330 220 L450 310 L560 260 L680 320 L800 280" class="soft"/>
+    <path d="M0 380 L800 380"/>
+    ${camper(190, 290, 0.8)}
+    <path d="M520 380 L540 360 M560 380 L540 360 M530 380 L552 370" class="thin"/>
+    <path d="M540 352 C530 338 548 330 540 314 C556 326 552 340 545 352" class="fire"/>
+    <path d="M300 404 L520 404 M140 420 L300 420" class="thin"/>`,
+  horizonte: `
+    <path d="M0 250 C160 200 300 230 400 215 S640 190 800 230" class="soft"/>
+    <path d="M0 270 L800 270"/>
+    <path d="M380 270 C360 320 250 380 90 450" />
+    <path d="M420 270 C450 320 580 380 760 450" />
+    <path d="M400 290 L398 300 M395 320 L391 338 M384 362 L376 392 M366 420 L358 450" class="thin"/>`,
+  camper: `
+    <path d="M0 150 L140 70 L220 110 L330 40 L460 130 L560 80 L680 140 L800 100" class="soft"/>
+    <path d="M40 380 L760 380"/>
+    ${camper(190, 196, 3.4)}
+    <path d="M60 400 L280 400 M520 400 L740 400" class="thin"/>`,
+};
+
+const starList = scene === 'noche' ? stars(70, 7, 260) : ['dunas', 'balcanes'].includes(scene) ? stars(22, scene.length, 120) : [];
+---
+<svg class={`illustration ${cls}`} viewBox="0 0 800 450" role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : 'true'} preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id={`${id}-s`} gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="800" y2="0">
+      <stop offset="0" stop-color="#CFE3AE" /><stop offset="1" stop-color="#F4D59A" />
+    </linearGradient>
+    <linearGradient id={`${id}-c`} gradientUnits="userSpaceOnUse" x1="6" y1="0" x2="112" y2="0">
+      <stop offset="0" stop-color="#CFE3AE" /><stop offset="1" stop-color="#F4D59A" />
+    </linearGradient>
+    <radialGradient id={`${id}-sky`} cx="0.7" cy="1" r="1">
+      <stop offset="0" stop-color="#1E2B1D" /><stop offset="0.7" stop-color="#0E1610" />
+    </radialGradient>
+  </defs>
+  <rect width="800" height="450" fill={`url(#${id}-sky)`} />
+  {starList.map((s) => <circle cx={s.x} cy={s.y} r={s.s} fill="#F4D59A" opacity={s.o} />)}
+  <g fill="none" stroke={`url(#${id}-s)`} stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" set:html={scenes[scene]} />
+</svg>
+
+<style>
+  .illustration { display: block; width: 100%; height: 100%; }
+  .illustration :global(.soft) { opacity: 0.55; }
+  .illustration :global(.ghost) { opacity: 0.25; stroke-dasharray: 2 8; }
+  .illustration :global(.thin) { stroke-width: 1.4; opacity: 0.8; }
+  .illustration :global(.dash) { stroke-dasharray: 6 10; stroke-width: 1.8; }
+  .illustration :global(.sun) { stroke-width: 1.6; fill: rgba(244, 213, 154, 0.07); }
+  .illustration :global(.moon) { stroke-width: 1.6; fill: rgba(244, 213, 154, 0.18); }
+  .illustration :global(.fire) { stroke: #E9A15F; fill: rgba(233, 161, 95, 0.25); }
+</style>

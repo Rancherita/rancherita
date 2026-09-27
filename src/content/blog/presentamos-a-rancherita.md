@@ -1,0 +1,33 @@
+---
+title: 'Presentamos a Rancherita'
+description: 'Una Toyota Hilux 4×4 con una cabina Tischer encima: por qué elegimos este camper para viajar lejos del asfalto.'
+date: 2026-09-20
+destino: rancherita
+cover: camper
+tags: [autocaravana, hilux, tischer, 4x4]
+---
+
+Rancherita no es una autocaravana al uso. Es una **Toyota Hilux** de doble tracción con una **cabina Tischer** cargada en la caja. Por fuera parece una pick-up con una mochila un poco grande; por dentro es nuestra casa: cama, cocina, agua, algo de energía y todo lo que necesitamos para pasar semanas sin buscar un camping.
+
+## Por qué una pick-up y no una furgoneta
+
+Queríamos poder seguir cuando se acaba el asfalto. Una furgoneta grande es cómoda, pero en una pista de montaña estrecha, en un vado o en la arena se queda corta. La Hilux nos da lo que buscábamos:
+
+- **Tracción 4×4 y reductora**, para las subidas rotas y los tramos de arena.
+- **Altura libre al suelo** y un chasis pensado para el trabajo duro.
+- **Mecánica conocida en medio mundo**: en Marruecos o en Albania, cualquier taller de pueblo ha visto una Hilux.
+- **Un tamaño contenido**, que cabe por calles de aldea y por caminos entre muros de piedra.
+
+## Por qué una cabina Tischer
+
+La cabina es desmontable, así que la pick-up sigue siendo una pick-up. Es ligera para lo que ofrece y está pensada para vivir dentro. Lo que más valoramos:
+
+- **La cama sobre la cabina del conductor**, que deja libre el resto del espacio.
+- **Autonomía**: depósito de agua, cocina y electricidad para parar donde nos guste, no donde nos dejen.
+- **Un centro de gravedad razonable**, clave cuando la pista se inclina.
+
+> La mejor acampada suele estar al final de una pista que nadie ha pisado en días.
+
+## Lo que viene
+
+En este blog contaremos nuestras rutas, los sitios donde hemos dormido, la gente que nos ha invitado a té o a pan recién hecho y todo lo que hemos aprendido (a veces a base de equivocarnos) sobre viajar así. Empezamos por **Marruecos**, donde pasamos cuatro meses y medio, y seguimos por los **Balcanes hasta Albania**.

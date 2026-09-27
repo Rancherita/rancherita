@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 64" fill="none">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="6" y1="0" x2="112" y2="0">
+      <stop offset="0" stop-color="#CFE3AE"/>
+      <stop offset="1" stop-color="#F4D59A"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#g)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- cabina Tischer -->
+    <path d="M40 22 L32 22 L37 9 Q38 7 40.5 7 L106 7 L106 45"/>
+    <path d="M52 22 L52 25"/>
+    <path d="M40 22 L52 22"/>
+    <path d="M100 7 L100 4.5 L110 4.5 L110 40 L106 40"/>
+    <rect x="47" y="11.5" width="15" height="5.5" rx="1.6"/>
+    <rect x="70" y="11.5" width="17" height="5.5" rx="1.6"/>
+    <!-- pick-up -->
+    <path d="M52 25 L37 25 L29 34 L10 36 Q7 36.4 7 39.5 L7 46 L13 46"/>
+    <path d="M13 46 A9 9 0 0 1 31 46"/>
+    <path d="M31 46 L83 46"/>
+    <path d="M83 46 A9 9 0 0 1 101 46"/>
+    <path d="M101 46 L108 46 L108 45"/>
+    <path d="M52 25 L52 40"/>
+    <rect x="38.5" y="28" width="5.5" height="4" rx="1.2"/>
+    <rect x="45.5" y="28" width="4.5" height="4" rx="1.2"/>
+    <rect x="62" y="31" width="20" height="4" rx="1.2"/>
+    <circle cx="22" cy="48" r="6.2"/>
+    <circle cx="92" cy="48" r="6.2"/>
+    <circle cx="22" cy="48" r="1.6"/>
+    <circle cx="92" cy="48" r="1.6"/>
+  </g>
+</svg>

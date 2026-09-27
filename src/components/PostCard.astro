@@ -1,0 +1,42 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Illustration from './Illustration.astro';
+import { DESTINOS, url } from '../config';
+import { readingTime, formatDate, destinoLabel } from '../lib/posts';
+
+interface Props { post: CollectionEntry<'blog'>; featured?: boolean }
+const { post, featured = false } = Astro.props;
+const d = post.data;
+---
+<article class:list={['card', 'reveal', { featured }]} data-destino={d.destino}>
+  <a href={url(`blog/${post.id}`)} class="media" tabindex="-1" aria-hidden="true">
+    {d.image ? <img src={url(d.image)} alt={d.imageAlt ?? ''} loading="lazy" /> : <Illustration scene={d.cover} />}
+  </a>
+  <div class="body">
+    <p class="meta"><span>{destinoLabel(d.destino)}</span><span>{formatDate(d.date)}</span><span>{readingTime(post.body ?? '')} min</span></p>
+    <h3><a href={url(`blog/${post.id}`)}>{d.title}</a></h3>
+    <p class="desc">{d.description}</p>
+  </div>
+</article>
+
+<style>
+  .card { display: flex; flex-direction: column; background: var(--noche-2); border: 1px solid var(--linea); border-radius: var(--radio); overflow: hidden; transition: border-color .25s, transform .25s; }
+  .card:hover { border-color: rgba(244, 213, 154, .45); transform: translateY(-4px); }
+  .media { display: block; aspect-ratio: 16 / 10; overflow: hidden; }
+  .media img, .media :global(svg) { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+  .card:hover .media img, .card:hover .media :global(svg) { transform: scale(1.04); }
+  .body { padding: 22px 24px 26px; display: flex; flex-direction: column; flex: 1; }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px 14px; font-family: var(--font-display); font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--texto-suave); margin-bottom: 12px; }
+  .meta span:first-child { color: var(--salvia); }
+  h3 { font-size: 1.35rem; margin-bottom: .45em; }
+  h3 a { color: var(--texto); text-decoration: none; }
+  h3 a::after { content: ''; position: absolute; inset: 0; }
+  .card { position: relative; }
+  h3 a:hover { color: var(--arena); }
+  .desc { color: var(--texto-suave); font-family: var(--font-body); font-size: 1rem; margin: 0; }
+  .featured { display: grid; grid-template-columns: 1.3fr 1fr; }
+  .featured .media { aspect-ratio: auto; min-height: 340px; }
+  .featured .body { justify-content: center; padding: 40px; }
+  .featured h3 { font-size: clamp(1.6rem, 2.6vw, 2.2rem); }
+  @media (max-width: 800px) { .featured { grid-template-columns: 1fr; } .featured .media { min-height: 0; aspect-ratio: 16 / 10; } .featured .body { padding: 24px; } }
+</style>

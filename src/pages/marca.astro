@@ -1,0 +1,88 @@
+---
+import Base from '../layouts/Base.astro';
+import Logo from '../components/Logo.astro';
+import camperRaw from '../assets/brand/camper.svg?raw';
+import { url } from '../config';
+
+const colores = [
+  { n: 'Noche', v: '#0B120C', uso: 'Fondo principal' },
+  { n: 'Noche 2', v: '#111A13', uso: 'Superficies y tarjetas' },
+  { n: 'Salvia', v: '#CFE3AE', uso: 'Inicio del degradado' },
+  { n: 'Arena', v: '#F4D59A', uso: 'Final del degradado, enlaces' },
+  { n: 'Ocre', v: '#E9A15F', uso: 'Acento cálido puntual' },
+  { n: 'Texto', v: '#EDE8DA', uso: 'Texto principal' },
+];
+const descargas = [
+  ['Logotipo (PNG, fondo oscuro)', 'brand/rancherita-logo.png'],
+  ['Logotipo (PNG, transparente)', 'brand/rancherita-logo-transparente.png'],
+  ['Marca circular (SVG)', 'brand/rancherita-marca.svg'],
+  ['Autocaravana (SVG)', 'brand/rancherita-autocaravana.svg'],
+  ['Favicon (SVG)', 'favicon.svg'],
+  ['Imagen para redes (1200×630)', 'og-image.png'],
+];
+const icon = camperRaw.replaceAll('id="g"', 'id="mk-g"').replaceAll('url(#g)', 'url(#mk-g)');
+---
+<Base title="Kit de marca" description="Logotipo, colores y tipografías de Rancherita.">
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Kit de marca</p>
+      <h1>Rancherita, en detalle</h1>
+      <p class="lead">El logotipo, los colores y las tipografías que dan forma al blog. Un trazo fino y luminoso sobre la noche: como los faros de Rancherita al final de una pista.</p>
+
+      <div class="logos">
+        <div class="tile big"><Logo size="min(70vw, 340px)" /></div>
+        <div class="tile"><img src={url('favicon.svg')} alt="Marca circular" width="140" height="140" /><span>Marca / favicon</span></div>
+        <div class="tile"><div class="icon" set:html={icon} /><span>Autocaravana</span></div>
+        <div class="tile light"><span class="wordmark">RANCHERITA</span><span>Logotipo tipográfico</span></div>
+      </div>
+
+      <h2>Color</h2>
+      <div class="gradient"><span>Degradado de marca · Salvia → Arena</span></div>
+      <div class="colors">
+        {colores.map((c) => (
+          <div class="color"><div class="sw" style={`background:${c.v}`} /><strong>{c.n}</strong><code>{c.v}</code><span>{c.uso}</span></div>
+        ))}
+      </div>
+
+      <h2>Tipografía</h2>
+      <div class="type">
+        <div><span class="label">Rótulos · Michroma</span><p class="t1">RANCHERITA 4×4</p></div>
+        <div><span class="label">Titulares · Outfit</span><p class="t2">Lejos del asfalto, cerca de la gente</p></div>
+        <div><span class="label">Texto · Source Serif 4</span><p class="t3">Una pista de cuarenta kilómetros puede ser un día entero, y está bien que lo sea.</p></div>
+      </div>
+
+      <h2>Descargas</h2>
+      <ul class="dl">
+        {descargas.map(([n, f]) => <li><a href={url(f)} download>{n}<span>↓</span></a></li>)}
+      </ul>
+    </div>
+  </section>
+</Base>
+<style>
+  h2 { margin-top: 80px; margin-bottom: 24px; }
+  .logos { display: grid; grid-template-columns: 1.4fr 1fr 1fr; grid-template-rows: auto auto; gap: 20px; margin-top: 48px; }
+  .tile { background: var(--noche-2); border: 1px solid var(--linea); border-radius: var(--radio); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; padding: 32px; min-height: 220px; }
+  .tile > span:last-child { font-family: var(--font-display); font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--texto-suave); }
+  .big { grid-row: span 2; }
+  .icon { width: 160px; }
+  .light { grid-column: span 2; }
+  .wordmark { font-family: var(--font-display); font-size: clamp(1.1rem, 4.6vw, 2.6rem); letter-spacing: .14em; background: var(--degradado); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  @media (max-width: 800px) { .logos { grid-template-columns: minmax(0,1fr) minmax(0,1fr); } .tile { padding: 20px; min-height: 180px; } .tile img { width: 100px; height: 100px; } .icon { width: 120px; } .big, .light { grid-column: 1 / -1; grid-row: auto; } }
+  .gradient { height: 120px; border-radius: var(--radio); background: var(--degradado); display: flex; align-items: end; padding: 18px 22px; color: var(--noche); font-family: var(--font-display); font-size: .64rem; letter-spacing: .2em; text-transform: uppercase; }
+  .colors { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 20px; margin-top: 20px; }
+  .color { display: flex; flex-direction: column; gap: 4px; }
+  .sw { aspect-ratio: 3 / 2; border-radius: 10px; border: 1px solid var(--linea); margin-bottom: 8px; }
+  .color code { color: var(--arena); font-size: .9rem; }
+  .color span { color: var(--texto-suave); font-size: .9rem; }
+  .type { display: flex; flex-direction: column; border-top: 1px solid var(--linea); }
+  .type div { padding: 28px 0; border-bottom: 1px solid var(--linea); display: grid; grid-template-columns: 220px 1fr; gap: 20px; align-items: baseline; }
+  .label { font-family: var(--font-display); font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--salvia); }
+  .type p { margin: 0; }
+  .t1 { font-family: var(--font-display); font-size: clamp(1.1rem, 3vw, 2.2rem); letter-spacing: .14em; }
+  .t2 { font-size: clamp(1.6rem, 3.4vw, 2.6rem); font-weight: 500; line-height: 1.1; }
+  .t3 { font-family: var(--font-body); font-size: 1.25rem; font-style: italic; color: var(--texto-suave); }
+  @media (max-width: 700px) { .type div { grid-template-columns: 1fr; gap: 8px; } }
+  .dl { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 12px; }
+  .dl a { display: flex; justify-content: space-between; padding: 18px 22px; border: 1px solid var(--linea); border-radius: 10px; color: var(--texto); text-decoration: none; transition: border-color .2s; }
+  .dl a:hover { border-color: var(--arena); color: var(--arena); }
+</style>

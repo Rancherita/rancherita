@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+import Illustration from '../components/Illustration.astro';
+import { url } from '../config';
+
+const ficha = [
+  ['Vehículo base', 'Toyota Hilux, pick-up 4×4'],
+  ['Tracción', 'Doble tracción con reductora'],
+  ['Vivienda', 'Cabina Tischer sobre la caja'],
+  ['Cama', 'Sobre la cabina del conductor'],
+  ['Cocina', 'A bordo, para cocinar donde paremos'],
+  ['Agua', 'Depósito propio'],
+  ['Nombre', 'Rancherita, por supuesto'],
+  ['Pensada para', 'Pistas, arena, montaña y largas temporadas'],
+];
+---
+<Base title="La autocaravana" description="Rancherita: una Toyota Hilux 4×4 con cabina Tischer. Nuestra casa sobre ruedas para viajar por pistas.">
+  <section class="section hero">
+    <div class="wrap grid">
+      <div>
+        <p class="eyebrow">La autocaravana</p>
+        <h1>Esta es <span class="brand-gradient">Rancherita</span></h1>
+        <p class="lead">Una Toyota Hilux 4×4 con una cabina Tischer encima. Compacta, robusta y capaz de seguir cuando la carretera se convierte en pista. Es nuestro medio de transporte, nuestra casa y, a estas alturas, un miembro más del equipo.</p>
+      </div>
+      <div class="art"><Illustration scene="camper" label="Ilustración de Rancherita" /></div>
+    </div>
+  </section>
+
+  <section class="wrap ficha-wrap">
+    <h2>Ficha técnica</h2>
+    <dl class="ficha">
+      {ficha.map(([k, v]) => (<div class="reveal"><dt>{k}</dt><dd>{v}</dd></div>))}
+    </dl>
+  </section>
+
+  <section class="section">
+    <div class="wrap two">
+      <div class="reveal">
+        <h3>¿Por qué una pick-up?</h3>
+        <p>Porque queríamos llegar donde no llega una furgoneta. Tracción total, altura libre, una mecánica que se conoce en todo el mundo y un tamaño que cabe por calles de aldea y pistas entre muros de piedra.</p>
+      </div>
+      <div class="reveal">
+        <h3>¿Por qué una cabina Tischer?</h3>
+        <p>Porque es ligera, está hecha para vivir dentro y se puede desmontar. Nos da la autonomía para dormir donde nos guste —no donde nos dejen— sin renunciar a la capacidad de la 4×4.</p>
+      </div>
+      <div class="reveal">
+        <h3>Lo que llevamos</h3>
+        <p>Compresor, planchas, pala, eslinga, herramientas y repuestos básicos. Lo contamos con detalle en <a href={url('blog/preparar-la-4x4-para-pistas')}>esta entrada</a>.</p>
+      </div>
+      <div class="reveal">
+        <h3>Su historia</h3>
+        <p>Con ella hemos pasado cuatro meses y medio en Marruecos y hemos recorrido los Balcanes hasta Albania. La historia completa, en <a href={url('blog/presentamos-a-rancherita')}>Presentamos a Rancherita</a>.</p>
+      </div>
+    </div>
+  </section>
+</Base>
+<style>
+  .grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
+  .art { border-radius: var(--radio); overflow: hidden; border: 1px solid var(--linea); aspect-ratio: 16 / 10; }
+  @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+  .ficha { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 1px; background: var(--linea); border: 1px solid var(--linea); border-radius: var(--radio); overflow: hidden; margin: 32px 0 0; }
+  .ficha div { background: var(--noche-2); padding: 24px; }
+  dt { font-family: var(--font-display); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--salvia); margin-bottom: 8px; }
+  dd { margin: 0; font-size: 1.1rem; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 48px 64px; }
+  .two p { color: var(--texto-suave); font-family: var(--font-body); }
+  @media (max-width: 760px) { .two { grid-template-columns: 1fr; } }
+</style>

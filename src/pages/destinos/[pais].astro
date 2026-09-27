@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import Illustration from '../../components/Illustration.astro';
+import PostCard from '../../components/PostCard.astro';
+import { DESTINOS, url, type DestinoId } from '../../config';
+import { getPosts } from '../../lib/posts';
+
+export function getStaticPaths() {
+  return Object.keys(DESTINOS).map((pais) => ({ params: { pais } }));
+}
+const id = Astro.params.pais as DestinoId;
+const d = DESTINOS[id];
+const posts = (await getPosts()).filter((p) => p.data.destino === id);
+---
+<Base title={d.nombre} description={d.resumen}>
+  <section class="banner">
+    <Illustration scene={d.cover} />
+    <div class="wrap banner-copy">
+      <p class="eyebrow"><a href={url('destinos')}>Destinos</a></p>
+      <h1>{d.nombre}</h1>
+      <p class="lead">{d.resumen}</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <h2>{posts.length} {posts.length === 1 ? 'entrada' : 'entradas'}</h2>
+      <div class="grid-3">{posts.map((p) => <PostCard post={p} />)}</div>
+      {posts.length === 0 && <p class="lead">Pronto publicaremos las primeras historias de este destino.</p>}
+    </div>
+  </section>
+</Base>
+<style>
+  .banner { position: relative; min-height: 58vh; display: grid; align-items: end; overflow: hidden; border-bottom: 1px solid var(--linea); }
+  .banner > :global(svg) { position: absolute; inset: 0; opacity: .6; }
+  .banner-copy { position: relative; padding-block: 120px 56px; }
+  .banner::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(11, 18, 12, .9)); }
+  .banner-copy { z-index: 1; }
+  .eyebrow a { color: inherit; text-decoration: none; }
+  h1 { font-size: clamp(3rem, 9vw, 6.5rem); }
+</style>

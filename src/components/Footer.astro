@@ -1,0 +1,50 @@
+---
+import Logo from './Logo.astro';
+import { SITE, url } from '../config';
+const s = SITE.social;
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap cols">
+    <div class="brand">
+      <Logo size="150px" />
+      <p>{SITE.tagline}<br />Viajamos despacio, por pistas, con la casa a cuestas.</p>
+    </div>
+    <nav aria-label="Pie de página">
+      <p class="title">Explorar</p>
+      <a href={url('blog')}>Blog</a>
+      <a href={url('destinos/marruecos')}>Marruecos</a>
+      <a href={url('destinos/balcanes')}>Balcanes</a>
+      <a href={url('rancherita')}>La autocaravana</a>
+    </nav>
+    <nav aria-label="Más">
+      <p class="title">Más</p>
+      <a href={url('nosotros')}>Nosotros</a>
+      <a href={url('marca')}>Kit de marca</a>
+      <a href={url('rss.xml')}>RSS</a>
+      {s.instagram && <a href={s.instagram} rel="me">Instagram</a>}
+      {s.youtube && <a href={s.youtube} rel="me">YouTube</a>}
+      {s.email && <a href={`mailto:${s.email}`}>{s.email}</a>}
+    </nav>
+  </div>
+  <div class="wrap legal">
+    <span>© {year} Rancherita</span>
+    <span>Hecho con polvo de pista</span>
+  </div>
+</footer>
+
+<style>
+  .site-footer { border-top: 1px solid var(--linea); padding-top: 64px; margin-top: 40px; background: linear-gradient(180deg, var(--noche), #070b08); }
+  .cols { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+  .brand { display: flex; gap: 28px; align-items: center; }
+  .brand p { color: var(--texto-suave); font-family: var(--font-body); margin: 0; }
+  nav { display: flex; flex-direction: column; gap: 8px; }
+  nav a { color: var(--texto); text-decoration: none; }
+  nav a:hover { color: var(--arena); }
+  .title { font-family: var(--font-display); font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; color: var(--salvia); margin-bottom: 8px; }
+  .legal { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 40px 0 32px; margin-top: 48px; border-top: 1px solid var(--linea); font-family: var(--font-display); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--texto-suave); }
+  @media (max-width: 800px) {
+    .cols { grid-template-columns: 1fr 1fr; }
+    .brand { grid-column: 1 / -1; flex-direction: column; align-items: flex-start; }
+  }
+</style>

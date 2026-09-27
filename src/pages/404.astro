@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import Illustration from '../components/Illustration.astro';
+import { url } from '../config';
+---
+<Base title="Pista cortada">
+  <section class="section wrap nf">
+    <div class="art"><Illustration scene="atlas" /></div>
+    <p class="eyebrow">Error 404</p>
+    <h1>Esta pista no lleva a ninguna parte</h1>
+    <p class="lead">Nos ha pasado muchas veces. Lo mejor es dar la vuelta con calma.</p>
+    <a class="btn btn-primary" href={url('')}>Volver al inicio</a>
+  </section>
+</Base>
+<style>
+  .nf { text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .art { width: min(100%, 560px); aspect-ratio: 16 / 9; border-radius: var(--radio); overflow: hidden; margin-bottom: 40px; border: 1px solid var(--linea); }
+  .lead { margin-bottom: 32px; }
+</style>
