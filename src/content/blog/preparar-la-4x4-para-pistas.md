@@ -17,6 +17,8 @@ Salir del asfalto es sencillo; volver a él cuando algo se complica ya no tanto.
 - **Eslinga o cuerda cinética** y grilletes homologados.
 - **Gato adecuado** para una pick-up cargada, con base ancha para terreno blando.
 
+![El cofre exterior de Rancherita abierto: planchas de desatasco naranjas, un bidón verde y una bolsa roja, con más equipo guardado debajo](/fotos/cofre-equipo-recuperacion.jpg)
+
 ## Herramientas y repuestos
 
 - Juego de herramientas básico y llaves para las ruedas.
