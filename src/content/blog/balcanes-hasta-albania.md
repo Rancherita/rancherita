@@ -29,6 +29,8 @@ Albania tiene algo especial para quien viaja como nosotros. Buena parte del paí
 
 ![Pista de dos rodadas de grava entre pastos secos y piedras, con grandes nubes blancas](/fotos/balcanes-pista.jpg)
 
+![Pista de grava que sube en curvas por una ladera de hierba y pinos, bajo un cielo azul, vista desde el capó](/fotos/balcanes-pista-subida.jpg)
+
 - **Revisad el seguro**: comprobad qué países cubre vuestra carta verde antes de cruzar cada frontera.
 - **Contad con tiempo en las fronteras**, sobre todo en temporada alta.
 - **Las pistas de montaña pueden cerrarse** por nieve o desprendimientos fuera del verano: preguntad localmente.
