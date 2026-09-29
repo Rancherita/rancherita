@@ -18,11 +18,15 @@ export const DESTINOS = {
     nombre: 'Marruecos',
     resumen: 'Cuatro meses y medio entre el Rif, el Atlas, el Anti-Atlas y las puertas del Sáhara.',
     cover: 'dunas',
+    foto: undefined,
+    fotoAlt: undefined,
   },
   balcanes: {
     nombre: 'Balcanes',
     resumen: 'De la costa del Adriático a las montañas de Albania, por carreteras secundarias y pistas.',
     cover: 'balcanes',
+    foto: '/fotos/balcanes-rancherita.jpg',
+    fotoAlt: 'Rancherita en una carretera de montaña de los Balcanes bajo un cielo de tormenta',
   },
 } as const;
 

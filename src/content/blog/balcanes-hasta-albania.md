@@ -4,6 +4,8 @@ description: 'Carreteras secundarias, montañas salvajes y pueblos donde todaví
 date: 2026-08-28
 destino: balcanes
 cover: balcanes
+image: /fotos/balcanes-rancherita.jpg
+imageAlt: 'Rancherita aparcada junto a una carretera de montaña en los Balcanes, con nosotros dos delante y nubes de tormenta sobre las cumbres'
 tags: [balcanes, albania, montaña]
 ---
 
