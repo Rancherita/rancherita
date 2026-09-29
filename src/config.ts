@@ -25,8 +25,8 @@ export const DESTINOS = {
     nombre: 'Balcanes',
     resumen: 'De la costa del Adriático a las montañas de Albania, por carreteras secundarias y pistas.',
     cover: 'balcanes',
-    foto: '/fotos/balcanes-rancherita.jpg',
-    fotoAlt: 'Rancherita en una carretera de montaña de los Balcanes bajo un cielo de tormenta',
+    foto: '/fotos/balcanes-mirador.jpg',
+    fotoAlt: 'Rancherita en una pista entre pastos y pinos, con las montañas de los Balcanes al fondo',
   },
 } as const;
 
