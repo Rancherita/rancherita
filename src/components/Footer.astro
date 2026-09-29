@@ -1,6 +1,6 @@
 ---
 import Logo from './Logo.astro';
-import { SITE, url } from '../config';
+import { DESTINOS, SITE, url } from '../config';
 const s = SITE.social;
 const year = new Date().getFullYear();
 ---
@@ -13,8 +13,7 @@ const year = new Date().getFullYear();
     <nav aria-label="Pie de página">
       <p class="title">Explorar</p>
       <a href={url('blog')}>Blog</a>
-      <a href={url('destinos/marruecos')}>Marruecos</a>
-      <a href={url('destinos/balcanes')}>Balcanes</a>
+      {Object.entries(DESTINOS).map(([id, d]) => <a href={url(`destinos/${id}`)}>{d.nombre}</a>)}
       <a href={url('rancherita')}>La autocaravana</a>
     </nav>
     <nav aria-label="Más">

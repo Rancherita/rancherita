@@ -5,12 +5,12 @@ import { DESTINOS, url } from '../../config';
 import { getPosts } from '../../lib/posts';
 const posts = await getPosts();
 ---
-<Base title="Destinos" description="Los países que hemos recorrido con Rancherita: Marruecos y los Balcanes hasta Albania.">
+<Base title="Destinos" description="Los sitios que hemos recorrido con Rancherita: Marruecos, los Balcanes hasta Albania, Normandía, Bretaña, Suiza y Córcega.">
   <section class="section">
     <div class="wrap">
       <p class="eyebrow">Destinos</p>
       <h1>Dónde hemos estado</h1>
-      <p class="lead">Hasta ahora, dos grandes viajes. Y una lista muy larga de sitios a los que queremos llegar por pista.</p>
+      <p class="lead">Marruecos, los Balcanes, Normandía, Bretaña, Suiza y Córcega. Y una lista muy larga de sitios a los que queremos llegar por pista.</p>
       <div class="list">
         {Object.entries(DESTINOS).map(([id, d], i) => {
           const n = posts.filter((p) => p.data.destino === id).length;

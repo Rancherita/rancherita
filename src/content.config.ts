@@ -8,7 +8,7 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     date: z.coerce.date(),
-    destino: z.enum(['marruecos', 'balcanes', 'rancherita', 'filosofia']),
+    destino: z.enum(['marruecos', 'balcanes', 'normandia', 'bretana', 'suiza', 'corcega', 'rancherita', 'filosofia']),
     // Ilustración de portada de la marca (mientras no haya foto)
     cover: z.enum(['dunas', 'atlas', 'balcanes', 'pista', 'noche', 'camper']).default('pista'),
     // Foto de portada opcional: ruta dentro de /public, p. ej. /fotos/merzouga.jpg

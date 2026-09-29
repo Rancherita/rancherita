@@ -4,7 +4,7 @@ import Base from '../../layouts/Base.astro';
 import Illustration from '../../components/Illustration.astro';
 import PostCard from '../../components/PostCard.astro';
 import { getPosts, readingTime, formatDate, destinoLabel } from '../../lib/posts';
-import { url } from '../../config';
+import { DESTINOS, url } from '../../config';
 
 export async function getStaticPaths() {
   const posts = await getPosts();
@@ -14,7 +14,7 @@ const { post, newer, older } = Astro.props;
 const { Content } = await render(post);
 const d = post.data;
 const related = (await getPosts()).filter((p) => p.id !== post.id).slice(0, 3);
-const destinoHref = ['marruecos', 'balcanes'].includes(d.destino) ? url(`destinos/${d.destino}`) : url('blog');
+const destinoHref = d.destino in DESTINOS ? url(`destinos/${d.destino}`) : url('blog');
 ---
 <Base title={d.title} description={d.description} type="article">
   <article>

@@ -15,7 +15,7 @@ Hecho con [Astro](https://astro.build) y publicado automáticamente en GitHub Pa
 title: 'Noches en el erg'
 description: 'Una frase que resuma la entrada (sale en las tarjetas y en Google).'
 date: 2026-10-01
-destino: marruecos      # marruecos | balcanes | rancherita | filosofia
+destino: marruecos      # marruecos | balcanes | normandia | bretana | suiza | corcega | rancherita | filosofia
 cover: dunas            # ilustración si no hay foto: dunas | atlas | balcanes | pista | noche | camper
 image: /fotos/merzouga.jpg   # opcional: foto de portada (guárdala en public/fotos/)
 imageAlt: 'Rancherita junto a las dunas al atardecer'
