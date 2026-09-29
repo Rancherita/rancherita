@@ -4,6 +4,8 @@ description: 'Nuestro gran viaje hasta ahora: pistas, montañas, desierto y la h
 date: 2026-09-12
 destino: marruecos
 cover: dunas
+image: /fotos/marruecos-burros.jpg
+imageAlt: 'Rancherita por una carretera de montaña en Marruecos, cruzándose con unos burros cargados en el arcén'
 tags: [marruecos, atlas, sahara, pistas]
 ---
 

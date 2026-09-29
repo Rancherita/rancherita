@@ -18,8 +18,8 @@ export const DESTINOS = {
     nombre: 'Marruecos',
     resumen: 'Cuatro meses y medio entre el Rif, el Atlas, el Anti-Atlas y las puertas del Sáhara.',
     cover: 'dunas',
-    foto: undefined,
-    fotoAlt: undefined,
+    foto: '/fotos/marruecos-burros.jpg',
+    fotoAlt: 'Rancherita en una carretera de montaña de Marruecos junto a unos burros cargados',
   },
   balcanes: {
     nombre: 'Balcanes',
