@@ -10,7 +10,7 @@ const d = post.data;
 ---
 <article class:list={['card', 'reveal', { featured }]} data-destino={d.destino}>
   <a href={url(`blog/${post.id}`)} class="media" tabindex="-1" aria-hidden="true">
-    {d.image ? <img src={url(d.image)} alt={d.imageAlt ?? ''} loading="lazy" /> : <Illustration scene={d.cover} />}
+    {d.image ? <img src={url(d.image)} alt={d.imageAlt ?? ''} loading="lazy" style={d.imagePosition && `object-position:${d.imagePosition}`} /> : <Illustration scene={d.cover} />}
   </a>
   <div class="body">
     <p class="meta"><span>{destinoLabel(d.destino)}</span><span>{formatDate(d.date)}</span><span>{readingTime(post.body ?? '')} min</span></p>

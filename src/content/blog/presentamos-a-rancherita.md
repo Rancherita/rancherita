@@ -4,6 +4,9 @@ description: 'Una Toyota Hilux 4×4 con una cabina Tischer encima: por qué eleg
 date: 2026-09-20
 destino: rancherita
 cover: camper
+image: /fotos/rancherita.jpg
+imageAlt: 'Rancherita en una carretera entre montañas áridas de Marruecos'
+imagePosition: 'center 72%'
 tags: [autocaravana, hilux, tischer, 4x4]
 ---
 

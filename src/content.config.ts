@@ -14,6 +14,7 @@ const blog = defineCollection({
     // Foto de portada opcional: ruta dentro de /public, p. ej. /fotos/merzouga.jpg
     image: z.string().optional(),
     imageAlt: z.string().optional(),
+    imagePosition: z.string().optional(), // encuadre de la foto, p. ej. 'center 70%'
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
   }),

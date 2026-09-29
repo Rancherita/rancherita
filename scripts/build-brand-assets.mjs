@@ -1,5 +1,6 @@
 // Genera el kit de marca (favicons, iconos PWA, imagen Open Graph y logos PNG)
-// a partir de src/assets/brand/camper.svg.  Uso: npm run brand
+// a partir del logotipo original vectorizado en src/assets/brand/
+// (logo.svg, texto.svg y camper.svg).  Uso: npm run brand
 import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -9,7 +10,9 @@ const pub = (p) => resolve(root, 'public', p);
 mkdirSync(pub('brand'), { recursive: true });
 
 const C = { noche: '#0B120C', salvia: '#CFE3AE', arena: '#F4D59A' };
-const camper = readFileSync(resolve(root, 'src/assets/brand/camper.svg'), 'utf8');
+const brand = (f) => readFileSync(resolve(root, 'src/assets/brand', f), 'utf8');
+const camper = brand('camper.svg');
+const logo = brand('logo.svg');
 const inner = camper.replace(/^[\s\S]*?<defs>[\s\S]*?<\/defs>/, '').replace(/<\/svg>\s*$/, '');
 const grad = (id, x1, x2) => `<linearGradient id="${id}" gradientUnits="userSpaceOnUse" x1="${x1}" y1="0" x2="${x2}" y2="0"><stop offset="0" stop-color="${C.salvia}"/><stop offset="1" stop-color="${C.arena}"/></linearGradient>`;
 
@@ -24,26 +27,22 @@ const mark = ({ bg = true, ring = 3 } = {}) => `<svg xmlns="http://www.w3.org/20
 writeFileSync(pub('favicon.svg'), mark({ ring: 4 }));
 writeFileSync(pub('brand/rancherita-marca.svg'), mark({ bg: false }));
 writeFileSync(pub('brand/rancherita-autocaravana.svg'), camper);
+writeFileSync(pub('brand/rancherita-logo.svg'), logo);
+writeFileSync(pub('brand/rancherita-texto.svg'), brand('texto.svg'));
 
 const font = readFileSync(resolve(root, 'node_modules/@fontsource/michroma/files/michroma-latin-400-normal.woff2')).toString('base64');
 const fontCss = `@font-face{font-family:Michroma;src:url(data:font/woff2;base64,${font}) format('woff2')}`;
-const wordmark = (size) => `<div style="font-family:Michroma;font-size:${size}px;letter-spacing:.14em;background:linear-gradient(90deg,${C.salvia},${C.arena});-webkit-background-clip:text;color:transparent;padding-left:.14em">RANCHERITA</div>`;
 
-const logoLockup = (w) => `<div style="position:relative;width:${w}px;height:${w}px">
-  <svg viewBox="0 0 100 100" style="position:absolute;inset:0" width="${w}" height="${w}"><defs>${grad('rr', 10, 90)}
-    <mask id="m"><rect width="100" height="100" fill="#fff"/><rect x="0" y="56" width="100" height="14" fill="#000"/></mask></defs>
-    <circle cx="50" cy="50" r="41" fill="none" stroke="url(#rr)" stroke-width=".7" mask="url(#m)"/></svg>
-  <div style="position:absolute;left:28%;width:44%;top:27%">${camper}</div>
-  <div style="position:absolute;left:0;right:0;top:57.2%;display:flex;justify-content:center">${wordmark(w * 0.083)}</div>
-</div>`;
+// Logotipo original completo (aro + autocaravana + RANCHERITA), ancho w
+const logoLockup = (w) => `<img src="data:image/svg+xml;base64,${Buffer.from(logo).toString('base64')}" width="${w}" style="display:block">`;
 
 const pages = [
   ['favicon-32.png', 32, 32, `<img src="data:image/svg+xml;base64,${Buffer.from(mark({ ring: 5 })).toString('base64')}" width=32 height=32>`],
   ['apple-touch-icon.png', 180, 180, `<div style="width:180px;height:180px;background:${C.noche}">${mark({ bg: false, ring: 3 }).replace('<svg', '<svg width="180" height="180"')}</div>`],
   ['icon-192.png', 192, 192, mark({ ring: 3 }).replace('<svg', '<svg width="192" height="192"')],
   ['icon-512.png', 512, 512, `<div style="width:512px;height:512px;background:${C.noche}">${mark({ bg: false, ring: 2.5 }).replace('<svg', '<svg width="512" height="512"')}</div>`],
-  ['brand/rancherita-logo.png', 1200, 1200, `<div style="width:1200px;height:1200px;background:${C.noche};display:grid;place-items:center">${logoLockup(1100)}</div>`],
-  ['brand/rancherita-logo-transparente.png', 1200, 1200, `<div style="width:1200px;height:1200px;display:grid;place-items:center">${logoLockup(1100)}</div>`, true],
+  ['brand/rancherita-logo.png', 1200, 1200, `<div style="width:1200px;height:1200px;background:${C.noche};display:grid;place-items:center">${logoLockup(1000)}</div>`],
+  ['brand/rancherita-logo-transparente.png', 1200, 1200, `<div style="width:1200px;height:1200px;display:grid;place-items:center">${logoLockup(1000)}</div>`, true],
   ['og-image.png', 1200, 630, `<div style="width:1200px;height:630px;background:radial-gradient(ellipse at 70% 120%,#1d2a1c,${C.noche} 60%);display:flex;align-items:center;gap:70px;padding:0 90px;box-sizing:border-box;overflow:hidden">
      <div style="flex:none">${logoLockup(430)}</div>
      <div style="font-family:Michroma;color:#EDE8DA">
