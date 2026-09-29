@@ -11,6 +11,7 @@ export function getStaticPaths() {
 const id = Astro.params.pais as DestinoId;
 const d = DESTINOS[id];
 const posts = (await getPosts()).filter((p) => p.data.destino === id);
+const galeria = ('galeria' in d ? d.galeria : []) as readonly { src: string; alt: string }[];
 ---
 <Base title={d.nombre} description={d.resumen}>
   <section class="banner">
@@ -28,6 +29,16 @@ const posts = (await getPosts()).filter((p) => p.data.destino === id);
       {posts.length === 0 && <p class="lead">Pronto publicaremos las primeras historias de este destino.</p>}
     </div>
   </section>
+  {galeria.length > 0 && (
+    <section class="section galeria-sec">
+      <div class="wrap">
+        <h2>Fotos</h2>
+        <div class="galeria">
+          {galeria.map((f) => <a href={url(f.src)}><img src={url(f.src)} alt={f.alt} loading="lazy" /></a>)}
+        </div>
+      </div>
+    </section>
+  )}
 </Base>
 <style>
   .banner { position: relative; min-height: 58vh; display: grid; align-items: end; overflow: hidden; border-bottom: 1px solid var(--linea); }
@@ -38,4 +49,9 @@ const posts = (await getPosts()).filter((p) => p.data.destino === id);
   .banner-copy { z-index: 1; }
   .eyebrow a { color: inherit; text-decoration: none; }
   h1 { font-size: clamp(3rem, 9vw, 6.5rem); }
+  .galeria-sec { padding-top: 0; }
+  .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 24px; }
+  .galeria a { display: block; border-radius: var(--radio); overflow: hidden; border: 1px solid var(--linea); aspect-ratio: 4 / 3; }
+  .galeria img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; }
+  .galeria a:hover img { transform: scale(1.04); }
 </style>

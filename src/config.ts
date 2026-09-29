@@ -32,8 +32,13 @@ export const DESTINOS = {
     nombre: 'Normandía',
     resumen: 'Acantilados, playas del Canal de la Mancha y caminos rurales entre prados y pueblos de piedra.',
     cover: 'horizonte',
-    foto: undefined,
-    fotoAlt: undefined,
+    foto: '/fotos/normandia-rancherita-mar.jpg',
+    fotoAlt: 'Rancherita aparcada sobre la hierba junto al mar, bajo un cielo gris',
+    galeria: [
+      { src: '/fotos/normandia-rancherita-mar.jpg', alt: 'Rancherita aparcada sobre la hierba, entre matorrales, con el mar al fondo y un cielo de nubes grises' },
+      { src: '/fotos/normandia-casetas-faro.jpg', alt: 'Hilera de casetas de playa blancas con tejados de colores sobre una playa de cantos rodados, con un faro al fondo' },
+      { src: '/fotos/normandia-acantilados.jpg', alt: 'Aguja de roca blanca en el mar, vista entre dos acantilados cubiertos de hierba y flores amarillas' },
+    ],
   },
   bretana: {
     nombre: 'Bretaña',
