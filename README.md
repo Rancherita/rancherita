@@ -1,6 +1,6 @@
 # Rancherita · Blog de viajes 4×4
 
-Blog de viajes de **Rancherita**, nuestra Toyota Hilux 4×4 con cabina Tischer.
+Blog de viajes de **Rancherita**, nuestra Toyota Hilux 4×4 con una cabina de 20 años preparada para vivir con autonomía.
 Hecho con [Astro](https://astro.build) y publicado automáticamente en GitHub Pages.
 
 🌍 **Web:** https://rancheritaontour.com

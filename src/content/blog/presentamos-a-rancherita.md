@@ -1,16 +1,16 @@
 ---
 title: 'Presentamos a Rancherita'
-description: 'Una Toyota Hilux 4×4 con una cabina Tischer encima: por qué elegimos este camper para viajar lejos del asfalto.'
+description: 'Una Toyota Hilux 4×4 con una cabina de 20 años encima, preparada para vivir con autonomía: por qué elegimos este camper para viajar lejos del asfalto.'
 date: 2026-09-20
 destino: rancherita
 cover: camper
 image: /fotos/rancherita.jpg
 imageAlt: 'Rancherita en una carretera entre montañas áridas de Marruecos'
 imagePosition: 'center 72%'
-tags: [autocaravana, hilux, tischer, 4x4]
+tags: [autocaravana, hilux, autonomia, 4x4]
 ---
 
-Rancherita no es una autocaravana al uso. Es una **Toyota Hilux** de doble tracción con una **cabina Tischer** cargada en la caja. Por fuera parece una pick-up con una mochila un poco grande; por dentro es nuestra casa: cama, cocina, agua, algo de energía y todo lo que necesitamos para pasar semanas sin buscar un camping.
+Rancherita no es una autocaravana al uso. Es una **Toyota Hilux** de doble tracción con una **cabina de 20 años** cargada en la caja. Por fuera parece una pick-up con una mochila un poco grande; por dentro es nuestra casa: cama, cocina, agua, algo de energía y todo lo que necesitamos para pasar semanas sin buscar un camping.
 
 ## Por qué una pick-up y no una furgoneta
 
@@ -21,12 +21,12 @@ Queríamos poder seguir cuando se acaba el asfalto. Una furgoneta grande es cóm
 - **Mecánica conocida en medio mundo**: en Marruecos o en Albania, cualquier taller de pueblo ha visto una Hilux.
 - **Un tamaño contenido**, que cabe por calles de aldea y por caminos entre muros de piedra.
 
-## Por qué una cabina Tischer
+## Por qué esta cabina
 
-La cabina es desmontable, así que la pick-up sigue siendo una pick-up. Es ligera para lo que ofrece y está pensada para vivir dentro. Lo que más valoramos:
+Tiene 20 años, pero hoy está preparada para vivir de forma autosuficiente y con autonomía. La cabina es desmontable, así que la pick-up sigue siendo una pick-up. Es ligera para lo que ofrece y está pensada para vivir dentro. Lo que más valoramos:
 
 - **La cama sobre la cabina del conductor**, que deja libre el resto del espacio.
-- **Autonomía**: depósito de agua, cocina y electricidad para parar donde nos guste, no donde nos dejen.
+- **Autonomía**: placas solares, batería, baño seco ecológico, depósito de agua y cocina para parar donde nos guste, no donde nos dejen.
 - **Un centro de gravedad razonable**, clave cuando la pista se inclina.
 
 > La mejor acampada suele estar al final de una pista que nadie ha pisado en días.
