@@ -17,7 +17,7 @@ const count = (id: string) => posts.filter((p) => p.data.destino === id).length;
       <Logo size="min(78vw, 400px)" animate class="hero-logo" />
       <div class="hero-copy">
         <p class="eyebrow">Blog de viajes 4×4</p>
-        <h1>Lejos del asfalto,<br /><span class="brand-gradient">cerca de la gente.</span></h1>
+        <h1>El arte de viajar lento,<br /><span class="brand-gradient">evitando la multitud y acercándose a lo auténtico, al origen.</span></h1>
         <p class="lead">Viajamos con Rancherita, una Toyota Hilux con una cabina Tischer encima. Recorremos pistas, dormimos en la naturaleza y buscamos los lugares donde la gente todavía tiene tiempo para un té.</p>
         <div class="actions">
           <a class="btn btn-primary" href={url('blog')}>Leer el blog</a>
@@ -119,7 +119,7 @@ const count = (id: string) => posts.filter((p) => p.data.destino === id).length;
   .hero-bg :global(svg) { height: 100%; }
   .hero-bg :global(rect) { fill: transparent; }
   .hero-inner { position: relative; display: grid; grid-template-columns: auto 1fr; gap: clamp(32px, 6vw, 88px); align-items: center; }
-  .hero-copy h1 { margin-bottom: .4em; }
+  .hero-copy h1 { margin-bottom: .4em; font-size: clamp(2.1rem, 4.6vw, 3.5rem); }
   .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
   @media (max-width: 900px) {
     .hero-bg { height: 18%; }
