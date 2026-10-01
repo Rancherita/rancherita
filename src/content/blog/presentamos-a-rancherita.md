@@ -10,7 +10,13 @@ imagePosition: 'center 72%'
 tags: [autocaravana, hilux, autonomia, 4x4]
 ---
 
-Rancherita no es una autocaravana al uso. Es una **Toyota Hilux** de doble tracción con una **cabina de más de 20 años** cargada en la caja. Por fuera parece una pick-up con una mochila un poco grande; por dentro es nuestra casa: cama, cocina, agua, algo de energía y todo lo que necesitamos para pasar semanas sin buscar un camping.
+Rancherita no es una autocaravana al uso. Antes que nada, es nuestro hogar y nuestra fiel compañera de viaje.
+
+Desde el punto de vista técnico, es una **Toyota Hilux** de doble tracción, con bloqueo de diferencial y marcha reductora, que nos han sacado de más de un apuro. Lleva suspensión elevada y un compresor con el que, en cualquier lugar —y sobre todo después de circular por arena—, podemos devolver a los neumáticos traseros los 5,5 bar que necesitan.
+
+La cabina, de más de 20 años y cargada en la plataforma trasera, la hemos adaptado para viajar con autonomía y de forma autosuficiente. Dos placas solares y una batería de litio nos dan la electricidad que necesitamos: luz, carga por USB para todos los aparatos electrónicos y, sobre todo, una nevera que funciona sin problemas incluso con temperaturas extremas. El WC seco, además de ahorrarnos agua, es una opción mucho más ecológica que el químico.
+
+La calefacción diésel apenas la usamos, porque siempre intentamos dormir orientados para que sea el sol quien caliente la cabina por la mañana. Pero cuando no queda otra, como en el Atlas o en el desierto, donde los amaneceres pueden ser tremendamente fríos, nos permite ahorrar gas, que, con tantos sistemas distintos según el país, puede llegar a ser un problema.
 
 ## Por qué una pick-up y no una furgoneta
 
