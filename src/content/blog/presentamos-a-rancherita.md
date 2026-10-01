@@ -29,10 +29,10 @@ Queríamos poder seguir cuando se acaba el asfalto. Una furgoneta grande es cóm
 
 ## Por qué esta cabina
 
-Tiene más de 20 años, pero hoy está preparada para vivir de forma autosuficiente y con autonomía. La cabina es desmontable, así que la pick-up sigue siendo una pick-up. Es ligera para lo que ofrece y está pensada para vivir dentro. Lo que más valoramos:
+La cabina es desmontable, así que la pick-up sigue siendo una pick-up. Es ligera para lo que ofrece y está pensada para vivir dentro. Lo que más valoramos:
 
 - **La cama sobre la cabina del conductor**, que deja libre el resto del espacio.
-- **Autonomía**: placas solares, batería, baño seco ecológico, depósito de agua y cocina para parar donde nos guste, no donde nos dejen.
+- **Agua y cocina a bordo**, para parar donde nos guste, no donde nos dejen.
 - **Un centro de gravedad razonable**, clave cuando la pista se inclina.
 
 > La mejor acampada suele estar al final de una pista que nadie ha pisado en días.
