@@ -1,7 +1,7 @@
 ---
 title: 'Y dejamos Córcega'
 description: 'Una isla aún salvaje, verde y natural: dos costas opuestas, montañas que atrapan las nubes y una gente que ama su tierra.'
-date: 2026-10-02
+date: 2024-05-25
 destino: corcega
 cover: balcanes
 tags: [corcega, isla, costa, montaña]
