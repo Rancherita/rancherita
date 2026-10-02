@@ -13,5 +13,8 @@ export default defineConfig({
   site,
   base,
   trailingSlash: 'ignore',
+  // Estilos dentro de cada página: así, justo después de publicar, una página
+  // guardada en caché nunca apunta a un archivo CSS que ya no existe.
+  build: { inlineStylesheets: 'always' },
   integrations: [sitemap()],
 });
