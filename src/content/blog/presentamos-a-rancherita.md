@@ -18,25 +18,28 @@ La cabina, de más de 20 años y cargada en la plataforma trasera, ha sido adapt
 
 La calefacción diésel apenas la usamos, porque siempre intentamos dormir orientados para que sea el sol quien caliente la cabina por la mañana. Pero cuando no queda otra, como en el Atlas o en el desierto, donde los amaneceres pueden ser tremendamente fríos, nos permite ahorrar gas, que, con tantos sistemas distintos según el país, puede llegar a ser un problema.
 
-## Por qué una pick-up y no una furgoneta
+## Por qué una pick-up con cabina
 
-Queríamos poder seguir cuando se acaba el asfalto. Una furgoneta grande es cómoda, pero en una pista de montaña estrecha, en un vado o en la arena se queda corta. La Hilux nos da lo que buscábamos:
+Para poder seguir cuando se acaba el asfalto, pero también para salir de un apuro cuando ya no es posible dar marcha atrás. La Hilux nos da lo que buscábamos:
 
 - **Tracción 4×4 y reductora**, para las subidas rotas y los tramos de arena.
-- **Altura libre al suelo** y un chasis pensado para el trabajo duro.
-- **Mecánica conocida en medio mundo**: en Marruecos o en Albania, cualquier taller de pueblo ha visto una Hilux.
+- **Altura libre al suelo.**
+- **Mecánica conocida en medio mundo**: en Marruecos o en Albania, cualquier taller de pueblo ha visto una Hilux. Aunque, siendo sinceros, al ser un modelo nuevo, esto no siempre ha jugado a nuestro favor.
 - **Un tamaño contenido**, que cabe por calles de aldea y por caminos entre muros de piedra.
 
 ## Por qué esta cabina
 
-La cabina es desmontable, así que la pick-up sigue siendo una pick-up. Es ligera para lo que ofrece y está pensada para vivir dentro. Lo que más valoramos:
+Tiene más de 20 años, pero hoy está preparada para vivir de forma autosuficiente y con autonomía. Es desmontable, así que la pick-up sigue siendo una pick-up… aunque, a decir verdad, solo la hemos desmontado una vez. También hay que reconocer que su altura y su peso nos han puesto en algún apuro o, más bien, nos han limitado un poco.
 
-- **La cama sobre la cabina del conductor**, que deja libre el resto del espacio.
-- **Agua y cocina a bordo**, para parar donde nos guste, no donde nos dejen.
-- **Un centro de gravedad razonable**, clave cuando la pista se inclina.
+Lo que más valoramos:
+
+- **La cama sobre la cabina del conductor**, que deja libre el resto del espacio y nos ahorra montarla y desmontarla cada día.
+- **Autonomía**: placas solares, batería, baño seco ecológico, un depósito de 80 litros de agua, cocina… ¡y hasta ducha! Todo lo necesario para parar donde nos guste, no donde nos dejen.
+
+Eso sí, el agua es limitada y hay que usarla con mucha conciencia. Y eso hace el viaje aún más interesante, porque te enseña a valorar de otra manera lo que en nuestro día a día damos por sentado.
 
 > La mejor acampada suele estar al final de una pista que nadie ha pisado en días.
 
 ## Lo que viene
 
-En este blog contaremos nuestras rutas, los sitios donde hemos dormido, la gente que nos ha invitado a té o a pan recién hecho y todo lo que hemos aprendido (a veces a base de equivocarnos) sobre viajar así. Empezamos por **Marruecos**, donde pasamos cuatro meses y medio, y seguimos por los **Balcanes hasta Albania**.
+En este blog contaremos nuestras rutas, los sitios donde hemos dormido, la gente que nos ha invitado a un té o a pan recién hecho y todo lo que hemos aprendido (a menudo, a base de dificultades) sobre viajar así.
