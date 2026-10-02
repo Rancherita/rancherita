@@ -29,12 +29,12 @@ Para poder seguir cuando se acaba el asfalto, pero también para salir de un apu
 
 ## Por qué esta cabina
 
-Tiene más de 20 años, pero hoy está preparada para vivir de forma autosuficiente y con autonomía. Es desmontable, así que la pick-up sigue siendo una pick-up… aunque, a decir verdad, solo la hemos desmontado una vez. También hay que reconocer que su altura y su peso nos han puesto en algún apuro o, más bien, nos han limitado un poco.
+La cabina es desmontable, así que la pick-up sigue siendo una pick-up… aunque, a decir verdad, solo la hemos desmontado una vez. También hay que reconocer que su altura y su peso nos han puesto en algún apuro o, más bien, nos han limitado un poco.
 
 Lo que más valoramos:
 
 - **La cama sobre la cabina del conductor**, que deja libre el resto del espacio y nos ahorra montarla y desmontarla cada día.
-- **Autonomía**: placas solares, batería, baño seco ecológico, un depósito de 80 litros de agua, cocina… ¡y hasta ducha! Todo lo necesario para parar donde nos guste, no donde nos dejen.
+- **Agua y cocina a bordo**: un depósito de 80 litros, fogones… ¡y hasta ducha! Todo lo necesario para parar donde nos guste, no donde nos dejen.
 
 Eso sí, el agua es limitada y hay que usarla con mucha conciencia. Y eso hace el viaje aún más interesante, porque te enseña a valorar de otra manera lo que en nuestro día a día damos por sentado.
 
