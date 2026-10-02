@@ -34,7 +34,7 @@ La cabina es desmontable, así que la pick-up sigue siendo una pick-up… aunque
 Lo que más valoramos:
 
 - **La cama sobre la cabina del conductor**, que deja libre el resto del espacio y nos ahorra montarla y desmontarla cada día.
-- **Agua y cocina a bordo**: un depósito de 80 litros, fogones… ¡y hasta ducha! Todo lo necesario para parar donde nos guste, no donde nos dejen.
+- **Todo a bordo**: un depósito de 80 litros de agua, cocina… ¡y hasta ducha! Todo lo necesario para parar donde nos guste, no donde nos dejen.
 
 Eso sí, el agua es limitada y hay que usarla con mucha conciencia. Y eso hace el viaje aún más interesante, porque te enseña a valorar de otra manera lo que en nuestro día a día damos por sentado.
 
