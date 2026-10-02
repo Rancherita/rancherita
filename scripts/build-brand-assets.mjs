@@ -48,7 +48,7 @@ const pages = [
      <div style="font-family:Michroma;color:#EDE8DA">
        <div style="font-size:20px;letter-spacing:.3em;color:${C.salvia};margin-bottom:28px">BLOG DE VIAJES 4×4</div>
        <div style="font-family:Outfit,sans-serif;font-size:44px;line-height:1.12;font-weight:500;letter-spacing:-.01em">El arte de viajar lento, evitando la multitud y acercándose a lo auténtico, al origen.</div>
-       <div style="font-size:16px;line-height:1.9;letter-spacing:.16em;color:#A9AE9C;white-space:nowrap;margin-top:34px">MARRUECOS · BALCANES · BRETAÑA<br>SUIZA · NORMANDÍA · CÓRCEGA</div>
+       <div style="font-size:16px;line-height:1.9;letter-spacing:.16em;color:#A9AE9C;white-space:nowrap;margin-top:34px">MARRUECOS · BALCANES · BRETAÑA<br>SUIZA · NORMANDÍA · CORSICA</div>
      </div></div>`],
 ];
 

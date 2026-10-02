@@ -4,7 +4,7 @@ export const SITE = {
   title: 'Rancherita',
   tagline: 'El arte de viajar lento, evitando la multitud y acercándose a lo auténtico, al origen.',
   description:
-    'Blog de viajes de Rancherita, nuestra Toyota Hilux 4×4 con una cabina de más de 20 años preparada para vivir con autonomía. Pistas, naturaleza y encuentros con la gente del lugar: Marruecos, los Balcanes y Albania, Normandía, Bretaña, Suiza y Córcega.',
+    'Blog de viajes de Rancherita, nuestra Toyota Hilux 4×4 con una cabina de más de 20 años preparada para vivir con autonomía. Pistas, naturaleza y encuentros con la gente del lugar: Marruecos, los Balcanes y Albania, Normandía, Bretaña, Suiza y Corsica.',
   lang: 'es',
   social: {
     instagram: '', // p. ej. 'https://instagram.com/rancherita'
@@ -55,7 +55,7 @@ export const DESTINOS = {
     fotoAlt: undefined,
   },
   corcega: {
-    nombre: 'Córcega',
+    nombre: 'Corsica',
     resumen: 'Una montaña en mitad del Mediterráneo: carreteras de curvas, maquis y costa salvaje.',
     cover: 'balcanes',
     foto: undefined,
