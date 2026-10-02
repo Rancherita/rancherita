@@ -1,0 +1,9 @@
+---
+import Destino from '../../../views/Destino.astro';
+import { DESTINOS, type DestinoId } from '../../../config';
+
+export function getStaticPaths() {
+  return Object.keys(DESTINOS).map((pais) => ({ params: { pais } }));
+}
+---
+<Destino lang="de" id={Astro.params.pais as DestinoId} />

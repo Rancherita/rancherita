@@ -3,17 +3,23 @@ import Base from '../layouts/Base.astro';
 import Illustration from '../components/Illustration.astro';
 import { url } from '../config';
 ---
-<Base title="Pista cortada">
+<Base title="Pista cortada · Piste zu Ende" translated={false}>
   <section class="section wrap nf">
     <div class="art"><Illustration scene="atlas" /></div>
     <p class="eyebrow">Error 404</p>
     <h1>Esta pista no lleva a ninguna parte</h1>
     <p class="lead">Nos ha pasado muchas veces. Lo mejor es dar la vuelta con calma.</p>
-    <a class="btn btn-primary" href={url('')}>Volver al inicio</a>
+    <p class="lead de" lang="de-CH">Diese Piste führt nirgendwohin. Am besten in Ruhe umkehren.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href={url('')}>Volver al inicio</a>
+      <a class="btn btn-ghost" href={url('de/')} lang="de-CH">Zur Startseite</a>
+    </div>
   </section>
 </Base>
 <style>
   .nf { text-align: center; display: flex; flex-direction: column; align-items: center; }
   .art { width: min(100%, 560px); aspect-ratio: 16 / 9; border-radius: var(--radio); overflow: hidden; margin-bottom: 40px; border: 1px solid var(--linea); }
-  .lead { margin-bottom: 32px; }
+  .lead { margin-bottom: 12px; }
+  .lead.de { font-size: 1rem; opacity: .8; margin-bottom: 32px; }
+  .actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
 </style>

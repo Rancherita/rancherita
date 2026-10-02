@@ -50,6 +50,13 @@ const pages = [
        <div style="font-family:Outfit,sans-serif;font-size:44px;line-height:1.12;font-weight:500;letter-spacing:-.01em">El arte de viajar lento, evitando la multitud y acercándose a lo auténtico, al origen.</div>
        <div style="font-size:16px;line-height:1.9;letter-spacing:.16em;color:#A9AE9C;white-space:nowrap;margin-top:34px">MARRUECOS · BALCANES · BRETAÑA<br>SUIZA · NORMANDÍA · CORSICA</div>
      </div></div>`],
+  ['og-image-de.png', 1200, 630, `<div style="width:1200px;height:630px;background:radial-gradient(ellipse at 70% 120%,#1d2a1c,${C.noche} 60%);display:flex;align-items:center;gap:70px;padding:0 90px;box-sizing:border-box;overflow:hidden">
+     <div style="flex:none">${logoLockup(430)}</div>
+     <div style="font-family:Michroma;color:#EDE8DA">
+       <div style="font-size:20px;letter-spacing:.3em;color:${C.salvia};margin-bottom:28px">4×4-REISEBLOG</div>
+       <div style="font-family:Outfit,sans-serif;font-size:44px;line-height:1.12;font-weight:500;letter-spacing:-.01em">Die Kunst, langsam zu reisen: abseits der Massen, nah am Echten, am Ursprung.</div>
+       <div style="font-size:16px;line-height:1.9;letter-spacing:.16em;color:#A9AE9C;white-space:nowrap;margin-top:34px">MAROKKO · BALKAN · BRETAGNE<br>SCHWEIZ · NORMANDIE · CORSICA</div>
+     </div></div>`],
 ];
 
 const outline = readFileSync(resolve(root, 'node_modules/@fontsource-variable/outfit/files/outfit-latin-wght-normal.woff2')).toString('base64');

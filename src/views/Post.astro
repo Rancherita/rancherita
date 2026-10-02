@@ -1,0 +1,66 @@
+---
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Illustration from '../components/Illustration.astro';
+import PostCard from '../components/PostCard.astro';
+import { getPosts, readingTime, destinoLabel, postLang, postSlug, type Post } from '../lib/posts';
+import { DESTINOS, url } from '../config';
+import { UI, formatDate, href } from '../i18n';
+
+interface Props { post: Post; newer?: Post; older?: Post }
+const { post, newer, older } = Astro.props;
+const lang = postLang(post);
+const t = UI[lang];
+const { Content } = await render(post);
+const d = post.data;
+const related = (await getPosts(lang)).filter((p) => p.id !== post.id).slice(0, 3);
+const destinoHref = d.destino in DESTINOS ? href(`destinos/${d.destino}`, lang) : href('blog', lang);
+const link = (p: Post) => href(`blog/${postSlug(p)}`, lang);
+---
+<Base title={d.title} description={d.description} type="article">
+  <article>
+    <header class="wrap post-head">
+      <p class="eyebrow"><a href={destinoHref}>{destinoLabel(d.destino, lang)}</a></p>
+      <h1>{d.title}</h1>
+      <p class="lead">{d.description}</p>
+      <p class="meta"><time datetime={d.date.toISOString()}>{formatDate(d.date, lang)}</time><span>{readingTime(post.body ?? '')} {t.minRead}</span></p>
+    </header>
+    <div class="wrap cover">
+      {d.image ? <img src={url(d.image)} alt={d.imageAlt ?? ''} style={d.imagePosition && `object-position:${d.imagePosition}`} /> : <Illustration scene={d.cover} />}
+    </div>
+    <div class="wrap body">
+      <div class="prose"><Content /></div>
+      {d.tags.length > 0 && <ul class="tags">{d.tags.map((t) => <li>#{t}</li>)}</ul>}
+      <nav class="pager" aria-label={t.moreEntries}>
+        {older ? <a href={link(older)}><span>{t.prev}</span>{older.data.title}</a> : <span />}
+        {newer ? <a class="next" href={link(newer)}><span>{t.next}</span>{newer.data.title}</a> : <span />}
+      </nav>
+    </div>
+  </article>
+  <section class="section related">
+    <div class="wrap">
+      <h2>{t.keepReading}</h2>
+      <div class="grid-3">{related.map((p) => <PostCard post={p} />)}</div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .post-head { padding-top: clamp(48px, 8vw, 96px); max-width: 900px; text-align: center; }
+  .post-head .eyebrow a { color: inherit; text-decoration: none; }
+  .post-head .lead { margin-inline: auto; }
+  .meta { display: flex; justify-content: center; gap: 20px; font-family: var(--font-display); font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--texto-suave); margin-top: 24px; }
+  .cover { margin-top: 48px; border-radius: var(--radio); overflow: hidden; aspect-ratio: 21 / 9; border: 1px solid var(--linea); padding: 0; }
+  .cover img, .cover :global(svg) { width: 100%; height: 100%; object-fit: cover; display: block; }
+  @media (max-width: 700px) { .cover { aspect-ratio: 4 / 3; } }
+  .body { display: flex; flex-direction: column; align-items: center; padding-top: 56px; }
+  .prose { width: 100%; }
+  .tags { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; width: 100%; max-width: var(--ancho-texto); margin: 40px 0 0; }
+  .tags li { font-family: var(--font-display); font-size: .6rem; letter-spacing: .14em; text-transform: uppercase; color: var(--salvia); border: 1px solid var(--linea); border-radius: 999px; padding: .6em 1em; }
+  .pager { width: 100%; max-width: var(--ancho-texto); display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--linea); }
+  .pager a { display: flex; flex-direction: column; gap: 6px; color: var(--texto); text-decoration: none; font-weight: 500; }
+  .pager a:hover { color: var(--arena); }
+  .pager span { font-family: var(--font-display); font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--texto-suave); font-weight: 400; }
+  .pager .next { text-align: right; }
+  .related { border-top: 1px solid var(--linea); margin-top: 80px; }
+</style>

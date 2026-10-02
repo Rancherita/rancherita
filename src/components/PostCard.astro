@@ -1,20 +1,23 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import Illustration from './Illustration.astro';
-import { DESTINOS, url } from '../config';
-import { readingTime, formatDate, destinoLabel } from '../lib/posts';
+import { url } from '../config';
+import { formatDate, href } from '../i18n';
+import { readingTime, destinoLabel, postLang, postSlug } from '../lib/posts';
 
 interface Props { post: CollectionEntry<'blog'>; featured?: boolean }
 const { post, featured = false } = Astro.props;
 const d = post.data;
+const lang = postLang(post);
+const link = href(`blog/${postSlug(post)}`, lang);
 ---
 <article class:list={['card', 'reveal', { featured }]} data-destino={d.destino}>
-  <a href={url(`blog/${post.id}`)} class="media" tabindex="-1" aria-hidden="true">
+  <a href={link} class="media" tabindex="-1" aria-hidden="true">
     {d.image ? <img src={url(d.image)} alt={d.imageAlt ?? ''} loading="lazy" style={d.imagePosition && `object-position:${d.imagePosition}`} /> : <Illustration scene={d.cover} />}
   </a>
   <div class="body">
-    <p class="meta"><span>{destinoLabel(d.destino)}</span><span>{formatDate(d.date)}</span><span>{readingTime(post.body ?? '')} min</span></p>
-    <h3><a href={url(`blog/${post.id}`)}>{d.title}</a></h3>
+    <p class="meta"><span>{destinoLabel(d.destino, lang)}</span><span>{formatDate(d.date, lang)}</span><span>{readingTime(post.body ?? '')} min</span></p>
+    <h3><a href={link}>{d.title}</a></h3>
     <p class="desc">{d.description}</p>
   </div>
 </article>

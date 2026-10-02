@@ -7,7 +7,8 @@ Hecho con [Astro](https://astro.build) y publicado automáticamente en GitHub Pa
 
 ## Escribir una entrada nueva
 
-1. Crea un archivo `.md` en `src/content/blog/`, por ejemplo `src/content/blog/merzouga.md`.
+1. Crea un archivo `.md` en `src/content/blog/es/`, por ejemplo `src/content/blog/es/merzouga.md`.
+   Para la versión en alemán, crea otro con el **mismo nombre** en `src/content/blog/de/` (alemán de Suiza: siempre «ss», nunca «ß»).
 2. Copia esta cabecera y rellénala:
 
 ```md
@@ -31,12 +32,20 @@ Aquí va el texto, en Markdown. **Negritas**, listas, > citas, tablas…
 
 3. Guarda, haz commit y push a `main`. En 1–2 minutos la web se actualiza sola.
 
-> Podéis hacerlo directamente desde github.com: botón **Add file → Create new file** dentro de `src/content/blog/`.
+> Podéis hacerlo directamente desde github.com: botón **Add file → Create new file** dentro de `src/content/blog/es/` (o `de/`).
 > Las fotos, con **Add file → Upload files** en `public/fotos/`. Reducidlas antes a ~2000 px de ancho.
 
 ## Añadir un destino nuevo
 
-Edita `DESTINOS` en `src/config.ts` y añade el valor al `enum` de `destino` en `src/content.config.ts`.
+Edita `DESTINOS` en `src/config.ts` (con sus textos en `es` y `de`) y añade el valor al `enum` de `destino` en `src/content.config.ts`.
+
+## Idiomas
+
+El español está en la raíz (`/blog`) y el alemán de Suiza bajo `/de` (`/de/blog`).
+
+- Textos comunes (menú, pie, lema…): `src/i18n.ts`.
+- Textos de cada página: arriba del todo de cada archivo en `src/views/`, en dos bloques `es` y `de`.
+- Entradas del blog: `src/content/blog/es/` y `src/content/blog/de/`, con el mismo nombre de archivo.
 
 ## Redes sociales y contacto
 

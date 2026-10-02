@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro';
+import Illustration from '../components/Illustration.astro';
+import PostCard from '../components/PostCard.astro';
+import { DESTINOS, url, type DestinoId } from '../config';
+import { UI, href, type Lang } from '../i18n';
+import { getPosts } from '../lib/posts';
+
+interface Props { lang: Lang; id: DestinoId }
+const { lang, id } = Astro.props;
+const ui = UI[lang];
+const T = {
+  es: { back: 'Destinos', empty: 'Pronto publicaremos las primeras historias de este destino.', photos: 'Fotos' },
+  de: { back: 'Reiseziele', empty: 'Bald erscheinen hier die ersten Geschichten von diesem Reiseziel.', photos: 'Fotos' },
+}[lang];
+const d = DESTINOS[id];
+const txt = d[lang];
+const posts = (await getPosts(lang)).filter((p) => p.data.destino === id);
+const galeria = ('galeria' in d ? d.galeria : []) as readonly { src: string; es: string; de: string }[];
+---
+<Base title={txt.nombre} description={txt.resumen}>
+  <section class="banner">
+    {d.foto ? <img src={url(d.foto)} alt={txt.fotoAlt ?? ''} /> : <Illustration scene={d.cover} />}
+    <div class="wrap banner-copy">
+      <p class="eyebrow"><a href={href('destinos', lang)}>{T.back}</a></p>
+      <h1>{txt.nombre}</h1>
+      <p class="lead">{txt.resumen}</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <h2>{ui.entries(posts.length)}</h2>
+      <div class="grid-3">{posts.map((p) => <PostCard post={p} />)}</div>
+      {posts.length === 0 && <p class="lead">{T.empty}</p>}
+    </div>
+  </section>
+  {galeria.length > 0 && (
+    <section class="section galeria-sec">
+      <div class="wrap">
+        <h2>{T.photos}</h2>
+        <div class="galeria">
+          {galeria.map((f) => <a href={url(f.src)}><img src={url(f.src)} alt={f[lang]} loading="lazy" /></a>)}
+        </div>
+      </div>
+    </section>
+  )}
+</Base>
+<style>
+  .banner { position: relative; min-height: 58vh; display: grid; align-items: end; overflow: hidden; border-bottom: 1px solid var(--linea); }
+  .banner > :global(svg) { position: absolute; inset: 0; opacity: .6; }
+  .banner > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; opacity: .75; }
+  .banner-copy { position: relative; padding-block: 120px 56px; }
+  .banner::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(11, 18, 12, .9)); }
+  .banner-copy { z-index: 1; }
+  .eyebrow a { color: inherit; text-decoration: none; }
+  h1 { font-size: clamp(3rem, 9vw, 6.5rem); }
+  .galeria-sec { padding-top: 0; }
+  .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 24px; }
+  .galeria a { display: block; border-radius: var(--radio); overflow: hidden; border: 1px solid var(--linea); aspect-ratio: 4 / 3; }
+  .galeria img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; }
+  .galeria a:hover img { transform: scale(1.04); }
+</style>

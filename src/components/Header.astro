@@ -1,28 +1,33 @@
 ---
 import camperRaw from '../assets/brand/camper.svg?raw';
 import textoRaw from '../assets/brand/texto.svg?raw';
-import { url } from '../config';
-const links = [
-  { href: 'blog', label: 'Blog' },
-  { href: 'destinos', label: 'Destinos' },
-  { href: 'rancherita', label: 'Rancherita' },
-  { href: 'nosotros', label: 'Nosotros' },
-];
-const path = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '').replace(/^\/|\/$/g, '');
+import { UI, href, langFromPath, switchPath } from '../i18n';
+interface Props { translated?: boolean }
+const { translated = true } = Astro.props;
+const lang = langFromPath(Astro.url.pathname);
+const other = lang === 'es' ? 'de' : 'es';
+const t = UI[lang];
+const links = (['blog', 'destinos', 'rancherita', 'nosotros'] as const).map((k) => ({ href: k, label: t.nav[k] }));
+const path = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ''), '').replace(/^\/|\/$/g, '').replace(/^de(\/|$)/, '');
+const switchHref = translated ? switchPath(Astro.url.pathname, other) : href('', other);
 const icon = camperRaw.replaceAll('id="g"', 'id="hdr-g"').replaceAll('url(#g)', 'url(#hdr-g)');
 const name = textoRaw.replaceAll('id="g"', 'id="hdr-t"').replaceAll('url(#g)', 'url(#hdr-t)');
 ---
 <header class="site-header">
   <div class="wrap bar">
-    <a href={url('')} class="home" aria-label="Rancherita, inicio">
+    <a href={href('', lang)} class="home" aria-label={t.homeLabel}>
       <span class="icon" set:html={icon} />
       <span class="name" set:html={name} />
     </a>
-    <button class="toggle" aria-expanded="false" aria-controls="menu"><span class="sr-only">Menú</span><span></span><span></span></button>
-    <nav id="menu" aria-label="Principal">
+    <button class="toggle" aria-expanded="false" aria-controls="menu"><span class="sr-only">{t.menu}</span><span></span><span></span></button>
+    <nav id="menu" aria-label={t.navMain}>
       {links.map((l) => (
-        <a href={url(l.href)} aria-current={path.split('/')[0] === l.href ? 'page' : undefined}>{l.label}</a>
+        <a href={href(l.href, lang)} aria-current={path.split('/')[0] === l.href ? 'page' : undefined}>{l.label}</a>
       ))}
+      <span class="langs">
+        <a href={lang === 'es' ? '#' : switchHref} hreflang="es" lang="es" aria-current={lang === 'es' ? 'true' : undefined} title={lang === 'es' ? undefined : UI.de.switchLabel}>ES</a>
+        <a href={lang === 'de' ? '#' : switchHref} hreflang="de-CH" lang="de-CH" aria-current={lang === 'de' ? 'true' : undefined} title={lang === 'de' ? undefined : UI.es.switchLabel}>DE</a>
+      </span>
     </nav>
   </div>
 </header>
@@ -39,6 +44,9 @@ const name = textoRaw.replaceAll('id="g"', 'id="hdr-t"').replaceAll('url(#g)', '
   nav a { font-family: var(--font-display); font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--texto-suave); text-decoration: none; padding: .7em 1em; border-radius: 999px; transition: color .2s, background .2s; }
   nav a:hover { color: var(--texto); background: var(--noche-3); }
   nav a[aria-current='page'] { color: var(--arena); }
+  .langs { display: flex; align-items: center; margin-left: 10px; padding-left: 12px; border-left: 1px solid var(--linea); }
+  nav .langs a { padding: .7em .55em; }
+  nav .langs a[aria-current='true'] { color: var(--arena); pointer-events: none; }
   .toggle { display: none; }
   @media (max-width: 760px) {
     .toggle { display: grid; gap: 6px; background: none; border: 0; padding: 12px; cursor: pointer; }
@@ -49,6 +57,8 @@ const name = textoRaw.replaceAll('id="g"', 'id="hdr-t"').replaceAll('url(#g)', '
     nav.open { display: flex; }
     nav a { font-size: .8rem; padding: 1em 0; border-radius: 0; border-bottom: 1px solid var(--linea); }
     nav a:hover { background: none; }
+    .langs { margin: 12px 0 0; padding: 0; border: 0; gap: 8px; }
+    nav .langs a { border: 1px solid var(--linea); border-radius: 999px; padding: .6em 1.1em; }
   }
 </style>
 

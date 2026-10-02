@@ -1,6 +1,9 @@
 ---
 import Logo from './Logo.astro';
 import { DESTINOS, SITE, url } from '../config';
+import { UI, href, langFromPath } from '../i18n';
+const lang = langFromPath(Astro.url.pathname);
+const t = UI[lang];
 const s = SITE.social;
 const year = new Date().getFullYear();
 ---
@@ -8,19 +11,19 @@ const year = new Date().getFullYear();
   <div class="wrap cols">
     <div class="brand">
       <Logo size="150px" />
-      <p>{SITE.tagline}<br />Viajamos despacio, por pistas, con la casa a cuestas.</p>
+      <p>{t.tagline}<br />{t.footerLine}</p>
     </div>
-    <nav aria-label="Pie de página">
-      <p class="title">Explorar</p>
-      <a href={url('blog')}>Blog</a>
-      {Object.entries(DESTINOS).map(([id, d]) => <a href={url(`destinos/${id}`)}>{d.nombre}</a>)}
-      <a href={url('rancherita')}>La autocaravana</a>
+    <nav aria-label={t.footerNav}>
+      <p class="title">{t.explore}</p>
+      <a href={href('blog', lang)}>Blog</a>
+      {Object.entries(DESTINOS).map(([id, d]) => <a href={href(`destinos/${id}`, lang)}>{d[lang].nombre}</a>)}
+      <a href={href('rancherita', lang)}>{t.camper}</a>
     </nav>
-    <nav aria-label="Más">
-      <p class="title">Más</p>
-      <a href={url('nosotros')}>Nosotros</a>
-      <a href={url('marca')}>Kit de marca</a>
-      <a href={url('rss.xml')}>RSS</a>
+    <nav aria-label={t.more}>
+      <p class="title">{t.more}</p>
+      <a href={href('nosotros', lang)}>{t.nav.nosotros}</a>
+      <a href={url('marca')}>{t.brandKit}</a>
+      <a href={href('rss.xml', lang)}>RSS</a>
       {s.instagram && <a href={s.instagram} rel="me">Instagram</a>}
       {s.youtube && <a href={s.youtube} rel="me">YouTube</a>}
       {s.email && <a href={`mailto:${s.email}`}>{s.email}</a>}
@@ -28,7 +31,7 @@ const year = new Date().getFullYear();
   </div>
   <div class="wrap legal">
     <span>© {year} Rancherita</span>
-    <span>Hecho con polvo de pista</span>
+    <span>{t.madeWith}</span>
   </div>
 </footer>
 

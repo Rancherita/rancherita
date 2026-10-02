@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+import PostCard from '../components/PostCard.astro';
+import { getPosts, destinoLabel } from '../lib/posts';
+import type { Lang } from '../i18n';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const T = {
+  es: {
+    desc: 'Todas las entradas del blog de Rancherita: rutas, pistas, lugares y gente.',
+    eyebrow: 'Diario de ruta',
+    h1: 'El blog',
+    lead: 'Rutas, pistas, lugares donde dormir y, sobre todo, historias de la gente que nos cruzamos por el camino.',
+    filter: 'Filtrar por tema',
+    all: 'Todo',
+  },
+  de: {
+    desc: 'Alle Beiträge aus dem Blog von Rancherita: Routen, Pisten, Orte und Menschen.',
+    eyebrow: 'Reisetagebuch',
+    h1: 'Der Blog',
+    lead: 'Routen, Pisten, Übernachtungsplätze und vor allem Geschichten der Menschen, denen wir unterwegs begegnen.',
+    filter: 'Nach Thema filtern',
+    all: 'Alle',
+  },
+}[lang];
+const posts = await getPosts(lang);
+const filtros = [...new Set(posts.map((p) => p.data.destino))];
+---
+<Base title="Blog" description={T.desc}>
+  <section class="section page-head">
+    <div class="wrap">
+      <p class="eyebrow">{T.eyebrow}</p>
+      <h1>{T.h1}</h1>
+      <p class="lead">{T.lead}</p>
+      <div class="filters" role="group" aria-label={T.filter}>
+        <button class="chip" aria-pressed="true" data-f="todos">{T.all} <span>{posts.length}</span></button>
+        {filtros.map((f) => (
+          <button class="chip" aria-pressed="false" data-f={f}>{destinoLabel(f, lang)} <span>{posts.filter((p) => p.data.destino === f).length}</span></button>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="wrap list">
+    <div class="grid-3">
+      {posts.map((p) => <PostCard post={p} />)}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-head { padding-bottom: 40px; }
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+  .chip { font: inherit; font-family: var(--font-display); font-size: .64rem; letter-spacing: .16em; text-transform: uppercase; color: var(--texto-suave); background: transparent; border: 1px solid var(--linea); border-radius: 999px; padding: .8em 1.2em; cursor: pointer; transition: all .2s; }
+  .chip span { opacity: .6; margin-left: .3em; }
+  .chip:hover { color: var(--texto); border-color: var(--texto-suave); }
+  .chip[aria-pressed='true'] { background: var(--degradado); color: var(--noche); border-color: transparent; }
+  .list { padding-bottom: 96px; }
+</style>
+
+<script>
+  const chips = document.querySelectorAll<HTMLButtonElement>('.chip');
+  const cards = document.querySelectorAll<HTMLElement>('.card');
+  chips.forEach((chip) => chip.addEventListener('click', () => {
+    chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+    const f = chip.dataset.f;
+    cards.forEach((card) => { card.hidden = f !== 'todos' && card.dataset.destino !== f; });
+  }));
+</script>

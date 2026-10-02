@@ -1,15 +1,20 @@
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import { DESTINOS } from '../config';
+import { UI, type Lang } from '../i18n';
 
-export async function getPosts() {
-  const posts = await getCollection('blog', ({ data }) => import.meta.env.DEV || !data.draft);
+// Las entradas viven en src/content/blog/<idioma>/<slug>.md. La misma entrada
+// en los dos idiomas comparte el nombre de archivo (slug).
+export type Post = CollectionEntry<'blog'>;
+
+export const postLang = (p: Post) => p.id.split('/')[0] as Lang;
+export const postSlug = (p: Post) => p.id.split('/').slice(1).join('/');
+
+export async function getPosts(lang: Lang) {
+  const posts = await getCollection('blog', (p) => p.id.startsWith(`${lang}/`) && (import.meta.env.DEV || !p.data.draft));
   return posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 }
 
 export const readingTime = (text: string) => Math.max(1, Math.round(text.split(/\s+/).length / 220));
 
-export const formatDate = (d: Date) =>
-  d.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
-
-const EXTRA: Record<string, string> = { rancherita: 'La autocaravana', filosofia: 'Cómo viajamos' };
-export const destinoLabel = (id: string) => (DESTINOS as Record<string, { nombre: string }>)[id]?.nombre ?? EXTRA[id] ?? id;
+export const destinoLabel = (id: string, lang: Lang) =>
+  id in DESTINOS ? DESTINOS[id as keyof typeof DESTINOS][lang].nombre : (UI[lang].extra[id] ?? id);

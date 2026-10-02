@@ -1,0 +1,64 @@
+---
+import Base from '../layouts/Base.astro';
+import Logo from '../components/Logo.astro';
+import { SITE } from '../config';
+import { href, type Lang } from '../i18n';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const s = SITE.social;
+const hasSocial = s.instagram || s.youtube || s.email;
+const T = {
+  es: {
+    title: 'Nosotros',
+    desc: 'Quiénes somos y cómo viajamos: naturaleza, pistas y contacto con la gente del lugar.',
+    h1: 'Viajar despacio, por el camino largo',
+    p1: 'Somos los que conducimos Rancherita. Empezamos a viajar así porque queríamos algo distinto a las rutas de siempre: menos monumentos y más valles vacíos, menos colas y más conversaciones.',
+    p2: 'Nuestro gran viaje hasta ahora fueron <strong>cuatro meses y medio en Marruecos</strong>. También hemos recorrido los <strong>países balcánicos hasta Albania</strong>, <strong>Normandía</strong>, <strong>Bretaña</strong>, <strong>Suiza</strong> y <strong>Corsica</strong>. En todos ellos buscamos lo mismo: estar en contacto con la naturaleza, evitar los lugares turísticos, circular por pistas y caminos, y conocer a la gente que vive allí.',
+    p3: 'Este blog es nuestro cuaderno de ruta. Aquí contamos lo que vemos, lo que aprendemos y todo lo que puede servir a quien quiera viajar de una manera parecida.',
+    write: 'Escríbenos',
+    read: 'Leer el blog',
+  },
+  de: {
+    title: 'Über uns',
+    desc: 'Wer wir sind und wie wir reisen: Natur, Pisten und der Kontakt zu den Menschen vor Ort.',
+    h1: 'Langsam reisen, auf dem langen Weg',
+    p1: 'Wir sind die, die Rancherita fahren. Wir haben angefangen, so zu reisen, weil wir etwas anderes wollten als die üblichen Routen: weniger Sehenswürdigkeiten und mehr leere Täler, weniger Warteschlangen und mehr Gespräche.',
+    p2: 'Unsere bisher grösste Reise waren <strong>viereinhalb Monate in Marokko</strong>. Ausserdem waren wir in den <strong>Balkanländern bis Albanien</strong>, in der <strong>Normandie</strong>, der <strong>Bretagne</strong>, der <strong>Schweiz</strong> und auf <strong>Corsica</strong> unterwegs. Überall suchen wir dasselbe: in Kontakt mit der Natur sein, Touristenorte meiden, auf Pisten und Wegen fahren und die Menschen kennenlernen, die dort leben.',
+    p3: 'Dieser Blog ist unser Reisetagebuch. Hier erzählen wir, was wir sehen, was wir lernen, und alles, was jemandem nützen kann, der ähnlich reisen möchte.',
+    write: 'Schreibt uns',
+    read: 'Zum Blog',
+  },
+}[lang];
+---
+<Base title={T.title} description={T.desc}>
+  <section class="section">
+    <div class="wrap grid">
+      <div class="logo"><Logo size="min(80vw, 360px)" /></div>
+      <div>
+        <p class="eyebrow">{T.title}</p>
+        <h1>{T.h1}</h1>
+        <div class="prose">
+          <p>{T.p1}</p>
+          <p set:html={T.p2} />
+          <p>{T.p3}</p>
+        </div>
+        {hasSocial ? (
+          <div class="social">
+            {s.instagram && <a class="btn btn-ghost" href={s.instagram}>Instagram</a>}
+            {s.youtube && <a class="btn btn-ghost" href={s.youtube}>YouTube</a>}
+            {s.email && <a class="btn btn-primary" href={`mailto:${s.email}`}>{T.write}</a>}
+          </div>
+        ) : (
+          <div class="social"><a class="btn btn-primary" href={href('blog', lang)}>{T.read}</a></div>
+        )}
+      </div>
+    </div>
+  </section>
+</Base>
+<style>
+  .grid { display: grid; grid-template-columns: auto 1fr; gap: clamp(32px, 6vw, 96px); align-items: start; }
+  .logo { position: sticky; top: 120px; }
+  .social { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+  @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } .logo { position: static; justify-self: center; } }
+</style>
